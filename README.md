@@ -35,4 +35,4 @@ use OmniAuth::Builder do
 end
 ```
 
-The default site it will connect to is https://deals.crushpath.com but you can change it via the `:site` option
+The default site it will connect to is `https://deals.crushpath.com` but you can change it via the `:site` option
