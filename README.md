@@ -12,13 +12,6 @@ gem 'omniauth'
 gem 'omniauth-crushpath'
 ```
 
-or even:
-
-```ruby
-gem 'omniauth'
-gem 'omniauth-crushpath'
-```
-
 Then `bundle install`.
 
 ## Usage
@@ -30,6 +23,14 @@ Here's a quick example, adding the middleware to a Rails app in `config/initiali
 
 ```ruby
 Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :crushpath, ENV['CRUSHPATH_KEY'], ENV['CRUSHPATH_SECRET']
+end
+```
+
+In Sinatra
+
+``` ruby
+use OmniAuth::Builder do
   provider :crushpath, ENV['CRUSHPATH_KEY'], ENV['CRUSHPATH_SECRET']
 end
 ```
