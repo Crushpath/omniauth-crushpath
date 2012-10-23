@@ -48,6 +48,11 @@ module OmniAuth
         @raw_info ||= access_token.get('/users/~.json').parsed
       end
 
+      def callback_url
+        url = full_host + script_name + callback_path
+        url.gsub(/\:\d+/, '') #remove the port
+      end
+
       def get_vanity(tu)
         tu['vanity_path_name'] if tu
       end
