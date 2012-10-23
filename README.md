@@ -36,3 +36,20 @@ end
 ```
 
 The default site it will connect to is `https://deals.crushpath.com` but you can change it via the `:site` option
+
+### auth['info']
+
+* `id` - The user id
+* `full_name` - The person's display name
+* `email` - The person's email
+* `image` - A url to the full size image for the person
+* `description` - The person's title
+* `company` - The organization tied to the person's main job
+* `nickname` - The vanity_path for the default tenant user
+* `urls`  - Hash with urls
+  * `:tenant` - The tenant subdomain for the default tenant user
+  * `:crushpath` - The user's selected website
+
+### auth['extra']
+
+The same data as obtained for https://deals.crushpath.com/users/~.json
