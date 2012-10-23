@@ -12,13 +12,6 @@ gem 'omniauth'
 gem 'omniauth-crushpath'
 ```
 
-or even:
-
-```ruby
-gem 'omniauth'
-gem 'omniauth-crushpath'
-```
-
 Then `bundle install`.
 
 ## Usage
@@ -33,3 +26,13 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   provider :crushpath, ENV['CRUSHPATH_KEY'], ENV['CRUSHPATH_SECRET']
 end
 ```
+
+In Sinatra
+
+``` ruby
+use OmniAuth::Builder do
+  provider :crushpath, ENV['CRUSHPATH_KEY'], ENV['CRUSHPATH_SECRET']
+end
+```
+
+The default site it will connect to is `https://deals.crushpath.com` but you can change it via the `:site` option
