@@ -34,3 +34,5 @@ use OmniAuth::Builder do
   provider :crushpath, ENV['CRUSHPATH_KEY'], ENV['CRUSHPATH_SECRET']
 end
 ```
+
+The default site it will connect to is https://deals.crushpath.com but you can change it via the `:site` option
