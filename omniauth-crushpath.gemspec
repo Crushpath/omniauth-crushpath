@@ -2,11 +2,11 @@
 require File.expand_path('../lib/omniauth-crushpath/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.authors       = ["Alexey Vasiliev"]
-  gem.email         = ["leopard.not.a@gmail.com"]
-  gem.description   = %q{OmniAuth strategy for Crushpath}
+  gem.authors       = ["Monica Wilkinson"]
+  gem.email         = ["ciberch@crushpath.com"]
+  gem.description   = "Provides a bearer token with which to invoke the Crushpath Deals API"
   gem.summary       = %q{OmniAuth strategy for Crushpath}
-  gem.homepage      = ""
+  gem.homepage      = "https://deals.crushpath.com"
 
   gem.rubyforge_project = "omniauth-crushpath"
 
