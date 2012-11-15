@@ -80,7 +80,7 @@ module OmniAuth
         websites = contact['websites'] || []
         first_website = websites.first
         if first_website
-          return first_website.site.split(' ').first
+          return first_website['site'].split(' ').first
         end
       end
 
