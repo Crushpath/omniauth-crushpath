@@ -15,23 +15,32 @@ module OmniAuth
       uid { raw_info['id'] }
 
       info do
-        websites = raw_info['person']['websites'] || []
+        contact = contact(raw_info)
         prune!({
           :nickname => get_vanity(raw_info['default_tenant_user']),
-          :full_name => raw_info['person']['display_name'],
-          :image => raw_info['person']['avatar_url'],
-          :description => raw_info['person']['title'],
-          :company => get_company(raw_info['person']),
-          :email => raw_info['person']['email'],
+          :full_name => contact['display_name'],
+          :image => contact['avatar_url'],
+          :description => contact['title'],
+          :company => get_company_name(contact),
+          :email => contact['email'],
           :urls => {
              :tenant => get_tenant_subdomain(raw_info['default_tenant_user']),
-            :crushpath => websites.first
-          }
+             :company => get_company_website(contact),
+              :crushpath => get_website(contact)
+          },
+          :recommendations => get_recommendations(raw_info)
         })
       end
 
       extra do
         prune!({:raw_info => raw_info})
+      end
+
+      def contact(raw_info)
+        if raw_info['default_tenant_user'] and raw_info['default_tenant_user']['contact']
+          return raw_info['default_tenant_user']['contact']
+        end
+        return raw_info['person']
       end
 
       def request_phase
@@ -48,6 +57,10 @@ module OmniAuth
         @raw_info ||= access_token.get('/users/~.json').parsed
       end
 
+      def get_recommendations(raw_info)
+        raw_info['possible_recommendations'] || []
+      end
+
       def get_vanity(tu)
         tu['vanity_path_name'] if tu
       end
@@ -58,10 +71,27 @@ module OmniAuth
         end
       end
 
-      def get_company(person)
-        if person and person['main_job'] and person['main_job']['organization']
-          person['main_job']['organization']['display_name']
+
+      def get_company(contact)
+        contact['organization']
+      end
+
+      def get_website(contact)
+        websites = contact['websites'] || []
+        first_website = websites.first
+        if first_website
+          return first_website.site.split(' ').first
         end
+      end
+
+      def get_company_name(contact)
+        comp = get_company(contact)
+        return comp['display_name'] if comp
+      end
+
+      def get_company_website(contact)
+        comp = get_company(contact)
+        return comp['website'] if comp
       end
 
       private
