@@ -23,6 +23,8 @@ module OmniAuth
           :description => contact['title'],
           :company => get_company_name(contact),
           :email => contact['email'],
+          :company_description => get_company_description(contact),
+          :phone => phone(contact),
           :urls => {
              :tenant => get_tenant_subdomain(raw_info['default_tenant_user']),
              :company => get_company_website(contact),
@@ -89,9 +91,22 @@ module OmniAuth
         return comp['display_name'] if comp
       end
 
+      def get_company_description(contact)
+        comp = get_company(contact)
+        comp['summary'] if comp
+      end
+
       def get_company_website(contact)
         comp = get_company(contact)
         return comp['website'] if comp
+      end
+
+      def phone(contact)
+        phones = contact['phone_numbers'] || []
+        first_phone = phones.first
+        if first_phone
+          return first_phone['number'].split(' ').first
+        end
       end
 
       private
