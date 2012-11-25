@@ -1,0 +1,74 @@
+{"id":1,
+    "created_at":"2012-11-25T16:03:35Z",
+    "updated_at":"2012-11-25T16:03:38Z",
+    "email_confirmed":true,
+    "email_confirmation_token":null,
+    "beta":false,
+    "profile_settings":{},
+    "notifications":{},
+    "quota_settings":{},
+    "default_tenant_user":{
+        "id":1,
+        "user_id":1,
+        "tenant_id":1,
+        "is_default":true,
+        "is_admin":false,
+        "created_at":"2012-11-25T16:04:49Z",
+        "updated_at":"2012-11-25T16:13:55Z",
+        "can_access_all_deals":false,
+        "can_coach":false,
+        "can_edit_deals":true,
+        "vanity_path_name":"TomBrady",
+        "paid":true,
+        "tenant":{
+            "id":1,
+            "display_name":"crushpath",
+            "organization_id":2,
+            "created_at":"2012-11-25T06:54:52Z",
+            "updated_at":"2012-11-25T06:54:52Z",
+            "is_trial":true,
+            "trial_start_date":null
+        },
+        "contact":{
+            "id":1,
+            "user_id":1,
+            "display_name":"Tom Brady",
+            "first_name":"Tom",
+            "last_name":"Brady",
+            "is_executive":false,
+            "is_main_job":false,
+            "start_date":null,
+            "email":"tom@crushpath.com",
+            "description":null,
+            "birthday":null,
+            "gender":null,
+            "created_at":"2012-11-25T16:03:40Z",
+            "updated_at":"2012-11-25T16:03:40Z",
+            "avatar_url":"http://c683771.r71.cf2.rackcdn.com/uploads/contact/avatar/1/T",
+            "avatar_thumb_url":"http://c683771.r71.cf2.rackcdn.com/uploads/contact/avatar/1/thumb_T",
+            "tenant_id":1,
+            "phone_numbers":[
+                {
+                    "description": null,
+                    "number": "310 498 9407 (Work)"
+                }
+            ],
+            "websites":[],
+            "organization":{
+                "id":2,
+                "display_name":"Crushpath",
+                "summary":"Always be closing",
+                "avatar_url":"http://c683771.r71.cf2.rackcdn.com/uploads/product/avatar/organization_default.png",
+                "website":"www.crushpath.com"
+            }
+        }
+    },
+    "possible_recommendations":[
+        {
+            "display_name":"Wayne Inc",
+            "website":null,
+            "summary":"This is a sample company used to help you become acquainted with using Crushpath. If it were a real company, you would see a company summary, phone number, and website link. With Crushpath, we surface relevant data right where you need it, when you need it.",
+            "avatar_url":"http://c683771.r71.cf2.rackcdn.com/uploads/product/avatar/organization_default.png"
+        }
+    ]
+}
