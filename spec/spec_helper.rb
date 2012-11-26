@@ -7,8 +7,8 @@ require 'rack/test'
 require 'webmock/rspec'
 require 'omniauth'
 require 'omniauth-crushpath'
-require_relative "crushpath/user_response"
 require 'json'
+require_relative "../lib/crushpath_api/user_response"
 
 RSpec.configure do |config|
   config.include WebMock::API

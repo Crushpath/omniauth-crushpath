@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Crushpath::UserResponse do
+describe CrushpathApi::UserResponse do
 
   context "with paid user" do
     before do
       @json = fixture('user-with-contact-paid.json', true)
-      @resp = Crushpath::UserResponse.new(@json)
+      @resp = CrushpathApi::UserResponse.new(@json)
     end
 
     it "should be instantiable" do

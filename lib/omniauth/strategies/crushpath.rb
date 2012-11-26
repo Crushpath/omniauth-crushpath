@@ -1,5 +1,5 @@
 require 'omniauth-oauth2'
-require_relative "../../crushpath/user_response"
+require_relative "../../crushpath_api/user_response"
 
 module OmniAuth
   module Strategies
@@ -16,8 +16,8 @@ module OmniAuth
       uid { raw_info['id'] }
 
       info do
-
-        prune!()
+        resp = CrushpathApi::UserResponse.new(raw_info)
+        prune!(resp.parse)
       end
 
       extra do

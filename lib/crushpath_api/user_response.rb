@@ -1,4 +1,4 @@
-module Crushpath
+module CrushpathApi
   class UserResponse
 
     def initialize(raw_info)
