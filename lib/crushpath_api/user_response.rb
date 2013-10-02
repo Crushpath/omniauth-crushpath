@@ -75,7 +75,7 @@ module CrushpathApi
       if comp
         website = comp['website']
 
-        if website !~ /^http/
+        if website.to_s != '' && website !~ /^http/
           website = "http://#{website}"
         end
         return website
