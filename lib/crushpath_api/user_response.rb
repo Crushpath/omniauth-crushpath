@@ -14,6 +14,7 @@ module CrushpathApi
         :paid => @tu['paid'] || false,
         :image => @contact['avatar_url'],
         :description => @contact['title'],
+        :about_me => @contact['description'],
         :company => get_company_name,
         :email => @contact['email'],
         :company_description => get_company_description,
