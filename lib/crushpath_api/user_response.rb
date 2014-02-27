@@ -32,7 +32,6 @@ module CrushpathApi
       if @raw_info['default_tenant_user'] and @raw_info['default_tenant_user']['contact']
         return @raw_info['default_tenant_user']['contact']
       end
-      return @raw_info['person']
     end
 
     def get_recommendations
